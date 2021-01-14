@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iVivook : Biblioteca Duoc UC</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/util.js"></script>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">iVivook</a>
+        <div class="menu-derecha">
+            <a class="activo" href="index.html">Inicio</a>
+            <a href="libros.html">Todos los libros</a>
+            <a href="autores.html">Todos los autores</a>
+            <a href="login.html">Login</a>
+        </div>        
+    </header>
+
+    <form class="form" onsubmit="return validaLogin();" method="POST">
+        <div class="contenedorAvatar">
+            <img src="img/imgAvatar.png" alt="Avatar" class="avatar">
+        </div>
+        <div class="contenedorLogin">
+            <label for="txtNombreUsuario"><b>Nombre de Usuario</b></label>
+            <input type="text" name="txtNombreUsuario" id="txtNombreUsuario" placeholder="Ingrese su nombre de usuario">
+
+            <label for="txtContraseña"><b>Contraseña</b></label>
+            <input type="password" name="txtContraseña" id="txtContraseña" placeholder="Ingrese su contraseña">
+
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" name="chkRecordar" id="chkRecordar">Recordar sesión
+            </label>
+            <br>
+            <br>
+            <label>
+                Si no tienes cuenta, <a href="registro.html">registrate aquí</a>
+            </label>
+        </div>
+    </form>
+
+    <footer>
+        <p>&copy; iVivook 2021, plataforma de administración de bibliotecas.</p>
+    </footer>
+
+</body>
+</html>
