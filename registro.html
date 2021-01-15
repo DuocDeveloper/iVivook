@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iVivook : Biblioteca Duoc UC</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">iVivook</a>
+        <div class="menu-derecha">
+            <a class="activo" href="index.html">Inicio</a>
+            <a href="libros.html">Todos los libros</a>
+            <a href="autores.html">Todos los autores</a>
+            <a href="#" onclick="document.getElementById('modalLogin').style.display = 'block'">Login</a>
+        </div>        
+    </header>
+
+    <div class="contenedor">
+        <p>Registro de Usuarios</p>
+        <form action="" method="POST" class="registro" id="formRegistro">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 20%;"> <label for="txtRut">Rut</label></td>
+                    <td><input type="text" name="txtRut" id="txtRut" placeholder="Ingrese su rut"></td>
+                </tr>
+                <tr>
+                    <td><label for="txtNombreCompleto">Nombre Completo</label></td>
+                    <td><input type="text" name="txtNombreCompleto" id="txtNombreCompleto" placeholder="Ingrese su nombre completo"></td>
+                </tr>
+                <tr>
+                    <td><label for="txtFechaNacimiento">Fecha Nacimiento</label></td>
+                    <td><input type="date" name="txtFechaNacimiento" id="txtFechaNacimiento"></td>
+                </tr>
+                <tr>
+                    <td><label for="txtCelular">Teléfono Celular</label></td>
+                    <td><input type="tel" name="txtCelular" id="txtCelular" placeholder="Ingrese su telefono celular"></td>
+                </tr>
+                <tr>
+                    <td><label for="txtEmail">Email</label></td>
+                    <td><input type="email" name="txtEmail" id="txtEmail" placeholder="Ingrese su email"></td>
+                </tr>
+                <tr>
+                    <td><label for="txtContraseña">Contraseña</label></td>
+                    <td><input type="password" name="txtContraseña" id="txtContraseña" placeholder="Ingrese su contraseña"></td>
+                </tr>
+                <tr>
+                    <td><label for="txtREContraseña">Re Contraseña</label></td>
+                    <td><input type="password" name="txtREContraseña" id="txtREContraseña" placeholder="RE Ingrese su contraseña"></td>
+                </tr>
+            </table>
+            <hr>
+            <div class="botonera">
+                <button type="submit" id="btnGuardar">Guardar</button>
+                <button type="button" id="btnLimpiar">Limpiar</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; iVivook 2021, plataforma de administración de bibliotecas.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="js/messages_es.js"></script>
+    <script src="js/util.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#formRegistro').validate({
+                debug:true,
+                rules: {
+                    txtRut: {
+                        required: true,
+                        maxlength: 10,
+                        minlength: 9,
+                    },
+                    txtNombreCompleto: {
+                        required: true,
+                    },
+                    txtFechaNacimiento: {
+                        required: true,
+                        date: true,
+                        dateFormat: true,
+                    },
+                    txtCelular: {
+                        required: true,
+                        number: true,
+                        minlength: 9,
+                        maxlength: 9,
+                    },
+                    txtEmail: {
+                        required: true,
+                        email: true
+                    },
+                    txtContraseña: {
+                        required: true,
+                    },
+                    txtREContraseña: {
+                        equalTo: "#txtContraseña"
+                    },
+                },
+                messages: {
+                    txtRut: {
+                        required : "El campo rut es requerido."
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -87,6 +87,48 @@ section article img {
     box-sizing: border-box;
 }
 
+.contenedor {
+    padding: 20px;
+}
+
+.contenedor p {
+    font-weight: bold;
+}
+
+.registro {
+    padding: 20px;
+    border: 1px solid #fac259;
+}
+
+.registro input {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #686666;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.registro .botonera {
+    text-align: right;
+}
+
+.registro button {
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border: 1px solid #686666;
+    box-sizing: border-box;
+}
+
+.registro button[type=submit]{ background-color: #ff9e1e; }
+.registro button[type=button]{ background-color: #1e75c7; }
+
+.registro label {
+    font-weight: bold;
+}
+
 .form button {
     background-color: #2463f6;
     color: white;
@@ -102,7 +144,7 @@ section article img {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid red;;
+    border: 1px solid red;
     box-sizing: border-box;
 }
 
@@ -174,3 +216,19 @@ section article img {
     to {transform: scale(1);}
 }
 
+/* Plugins Easyzoom */
+.easyzoom {
+    float: left;
+}
+.easyzoom img {
+    display: block;
+}
+
+
+/* Shrink wrap strategy 2 */
+.easyzoom {
+    display: inline-block;
+}
+.easyzoom img {
+    vertical-align: bottom;
+}

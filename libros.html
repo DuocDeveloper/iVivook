@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iVivook : Biblioteca Duoc UC</title>
     <link rel="stylesheet" href="css/estilo.css">
-    <script src="js/util.js"></script>
 </head>
 <body>
     <header>
@@ -14,13 +13,17 @@
             <a class="activo" href="index.html">Inicio</a>
             <a href="libros.html">Todos los libros</a>
             <a href="autores.html">Todos los autores</a>
-            <a href="login.html">Login</a>
+            <a href="#" onclick="document.getElementById('modalLogin').style.display = 'block'">Login</a>
         </div>        
     </header>
 
     <section>
         <article>
-            <img src="img/libro_inquebrantables.jpg" alt="">
+            <div class="easyzoom">
+                <a href="img/zoom_inquebrantables.png">
+                    <img src="img/libro_inquebrantables.jpg" alt="">
+                </a>
+            </div>
             <p><b>Titulo</b> <br>Inquebrantables</p>
             <p><b>Autor</b> <br>Daniel Habif</p>
             <p><b>Editorial</b> <br>Ediciones Urbano</p>
@@ -60,5 +63,39 @@
     <footer>
         <p>&copy; iVivook 2021, plataforma de administración de bibliotecas.</p>
     </footer>
+
+    <div id="modalLogin" class="modal">
+        <span onclick="document.getElementById('modalLogin').style.display = 'none'" class="cerrar" title="Cerrar Login">&times;</span>
+    
+        <form class="form modalform animate" onsubmit="return validaLogin();" method="POST">
+            <div class="contenedorAvatar">
+                <img src="img/imgAvatar.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="contenedorLogin">
+                <label for="txtRut"><b>Rut</b></label>
+                <input type="text" name="txtRut" id="txtRut" placeholder="Ingrese su rut">
+
+                <label for="txtContraseña"><b>Contraseña</b></label>
+                <input type="password" name="txtContraseña" id="txtContraseña" placeholder="Ingrese su contraseña">
+
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" name="chkRecordar" id="chkRecordar">Recordar sesión
+                </label>
+                <br>
+                <br>
+                <label>
+                    Si no tienes cuenta, <a href="registro.html">registrate aquí</a>
+                </label>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/easyzoom.js"></script>
+    <script>
+        var $easyzoom = $('.easyzoom').easyZoom();
+        var api = $easyzoom.data('easyZoom');
+    </script>
 </body>
 </html>

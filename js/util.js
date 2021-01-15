@@ -1,9 +1,9 @@
 function validaLogin(){
-    var nombreUsuario = document.getElementById('txtNombreUsuario');
+    var nombreUsuario = document.getElementById('txtRut');
     var contraseña = document.getElementById('txtContraseña');
 
     if(nombreUsuario.value == ""){
-        alert("Ingrese su nombre de usuario");
+        alert("Ingrese su rut");
         nombreUsuario.focus();
         return false;
     }
@@ -14,3 +14,10 @@ function validaLogin(){
         return false;
     }
 }
+
+$(function(){
+    $("#btnLimpiar").click(function(){
+        $('input').val('');
+    });
+})
+
