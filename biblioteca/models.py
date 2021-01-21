@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Autor(models.Model):
@@ -8,7 +9,10 @@ class Autor(models.Model):
     defuncion = models.DateField(verbose_name="Fecha Defunción", null=True, blank=True)
 
     def __str__(self):
-        return self.nombre + ' ' + self.apellidos
+        return '%s, %s' % (self.apellidos, self.nombre)
+
+    def get_absolute_url(self):
+        return reverse("autor_detail", args=[str(self.id)])
     
 class Libro(models.Model):
     CATEGORIAS = [('1','Romance'),('2','Acción'),('3','Aventura'),('4','Comedia')]
@@ -25,6 +29,10 @@ class Libro(models.Model):
     def __str__(self):
         return self.titulo
 
+    def get_absolute_url(self):
+        return reverse("libro-detail", args=[str(self.id)])
+    
+
 class Existencia(models.Model): 
     FORMATOS = [('D','Digital'),('F', 'Fisico')]
     ESTADOS = [('D', 'Disponible'), ('P', 'Prestamo'), ('M', 'Mantención')]
@@ -35,8 +43,14 @@ class Existencia(models.Model):
     entrega = models.DateField(verbose_name="Fecha Entrega", null=True, blank=True)
     devolucion = models.DateField(verbose_name="Fecha Devolución", null=True, blank=True)
 
+    def __str__(self):
+        return '%s - %s' % (self.libro, self.libro.autor)
+
 class Galeria(models.Model):
     libro = models.ForeignKey(Libro, verbose_name="Libro", on_delete=models.DO_NOTHING) 
     imagen = models.FileField(upload_to='images/', verbose_name='Imagen')
     estado = models.BooleanField(verbose_name='Estado')
+
+    def __str__(self):
+        return 'Foto # %s : %s' % (self.id, self.libro)
 
