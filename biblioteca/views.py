@@ -3,6 +3,8 @@ from django.views import generic
 from .models import Libro, Autor, Existencia
 
 # Create your views here.
+
+
 def index(request):
     libros = Libro.objects.all().count()
     existencias = Existencia.objects.all().count()
@@ -12,13 +14,14 @@ def index(request):
     return render(
         request,
         'index.html',
-        context={'libros':libros,'existencias':existencias,'autores':autores, 'disponibles':disponibles}
+        context={'libros': libros, 'existencias': existencias,
+                 'autores': autores, 'disponibles': disponibles}
     )
 
 
 class LibroListView(generic.ListView):
     model = Libro
 
+
 class LibroDetailView(generic.DetailView):
     model = Libro
-
