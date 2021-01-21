@@ -1,0 +1,31 @@
+{% extends "base_generico.html" %}
+
+{% block contentido %}
+<div class="container-fluid p-0">
+    <section class="resume-section" id="inicio">
+        <div class="resume-section-content">
+            <h2 class="mb-0">Autores</h2>
+            {% if  autor_list %}
+            <table class="table table-sm">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Nacimiento</th>
+                    <th scope="col">Defunsión</th>
+                </tr>
+                {% for autor in autor_list %}
+                    <tr>
+                        <td><a href="{{ autor.get_absolute_url }}">{{autor.nombre}}</a></td>
+                        <td>{{autor.apellidos}}</td>
+                        <td>{{autor.nacimiento}}</td>
+                        <td><{{autor.defunsion}}/td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+            <p>No hay libros registrados en la plataforma.</p>
+            {% endif %}
+        </div>
+    </section>
+</div>
+{% endblock %}

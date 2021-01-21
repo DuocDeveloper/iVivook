@@ -22,6 +22,11 @@ def index(request):
 class LibroListView(generic.ListView):
     model = Libro
 
-
 class LibroDetailView(generic.DetailView):
     model = Libro
+
+class AutorListView(generic.ListView):
+    model = Autor
+
+class AutorDetailView(generic.DetailView):
+    model = Autor

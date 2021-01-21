@@ -43,17 +43,12 @@ class Libro(models.Model):
 class Existencia(models.Model):
     FORMATOS = [('D', 'Digital'), ('F', 'Fisico')]
     ESTADOS = [('D', 'Disponible'), ('P', 'Prestamo'), ('M', 'Mantención')]
-    libro = models.ForeignKey(
-        Libro, verbose_name="Libro", on_delete=models.DO_NOTHING)
-    formato = models.CharField(
-        verbose_name="Formato", choices=FORMATOS, max_length=1)
+    libro = models.ForeignKey(Libro, verbose_name="Libro", on_delete=models.DO_NOTHING)
+    formato = models.CharField(verbose_name="Formato", choices=FORMATOS, max_length=1)
     idioma = models.CharField(verbose_name="Idioma", max_length=50)
-    estado = models.CharField(verbose_name="Estado",
-                              choices=ESTADOS, max_length=1)
-    entrega = models.DateField(
-        verbose_name="Fecha Entrega", null=True, blank=True)
-    devolucion = models.DateField(
-        verbose_name="Fecha Devolución", null=True, blank=True)
+    estado = models.CharField(verbose_name="Estado",choices=ESTADOS, max_length=1)
+    entrega = models.DateField(verbose_name="Fecha Entrega", null=True, blank=True)
+    devolucion = models.DateField(verbose_name="Fecha Devolución", null=True, blank=True)
 
     def __str__(self):
         return '%s - %s' % (self.libro, self.libro.autor)
