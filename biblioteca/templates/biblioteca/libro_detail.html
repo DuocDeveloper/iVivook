@@ -1,0 +1,15 @@
+{% extends "base_generico.html" %}
+
+{% block contentido %}
+<div class="container-fluid p-0">
+    <section class="resume-section" id="inicio">
+        <div class="resume-section-content">
+            <h2 class="mb-0">Libro : {{ libro.titulo }}</h2>
+            <hr class="m-0" />
+            <p><strong>Autor: </strong> {{libro.autor}}</p>
+            <p><strong>Editorial: </strong> {{libro.editorial}}</p>
+            <p><strong>Año: </strong> {{libro.año}}</p>
+        </div>
+    </section>
+</div>
+{% endblock %}

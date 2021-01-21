@@ -1,0 +1,22 @@
+{% extends "base_generico.html" %}
+
+{% block contentido %}
+<div class="container-fluid p-0">
+    <section class="resume-section" id="inicio">
+        <div class="resume-section-content">
+            <h2 class="mb-0">Libros</h2>
+            {% if  libro_list %}
+            <ul>
+                {% for libro in libro_list %}
+                <li>
+                    <a href="{{ libro.get_absolute_url }}">{{ libro.titulo }}</a> : {{libro.autor}}
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No hay libros registrados en la plataforma.</p>
+            {% endif %}
+        </div>
+    </section>
+</div>
+{% endblock %}
