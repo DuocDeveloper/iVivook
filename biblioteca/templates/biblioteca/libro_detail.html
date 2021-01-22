@@ -6,7 +6,7 @@
         <div class="resume-section-content">
             <h2 class="mb-0">Libro : {{ libro.titulo }}</h2>
             <hr class="m-0" />
-            <p><strong>Autor: </strong> {{libro.autor}}</p>
+            <p><strong>Autor: </strong> <a href="{{ libro.autor.get_absolute_url }}">{{libro.autor}}</a></p>
             <p><strong>Editorial: </strong> {{libro.editorial}}</p>
             <p><strong>Año: </strong> {{libro.año}}</p>
         </div>

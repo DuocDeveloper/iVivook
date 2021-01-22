@@ -1,0 +1,18 @@
+{% extends "base_generico.html" %}
+
+{% block contentido %}
+
+<div class="container-fluid p-0">
+    <section class="resume-section" id="inicio">
+        <div class="resume-section-content">
+            <h2>Eliminar Autor</h2>
+            <p>Estas seguro que quieres eliminar el autor: {{ autor }}?</p>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Si, Eliminar">
+            </form>
+        </div>
+    </section>
+</div>    
+
+{% endblock %}

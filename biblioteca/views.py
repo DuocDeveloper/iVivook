@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.db import reset_queries
+from django.db.models.query import QuerySet
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
 from .models import Libro, Autor, Existencia
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -18,7 +21,6 @@ def index(request):
                  'autores': autores, 'disponibles': disponibles}
     )
 
-
 class LibroListView(generic.ListView):
     model = Libro
 
@@ -30,3 +32,20 @@ class AutorListView(generic.ListView):
 
 class AutorDetailView(generic.DetailView):
     model = Autor
+
+class AutorCreate(generic.edit.CreateView):
+    model = Autor
+    fields = ['nombre', 'apellidos', 'nacimiento', 'defuncion']
+
+
+class AutorUpdate(generic.edit.UpdateView):
+    model = Autor
+    fields = ['nombre', 'apellidos', 'nacimiento', 'defuncion']
+
+class AutorDelete(generic.edit.DeleteView):
+    model = Autor
+    success_url = reverse_lazy('autor')
+
+
+
+

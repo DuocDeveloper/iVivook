@@ -1,5 +1,18 @@
 {% extends "base_generico.html" %}
 
 {% block contentido %}
-    <h1>Autor Detail</h1>
+<div class="container-fluid p-0">
+    <section class="resume-section" id="inicio">
+        <div class="resume-section-content">
+            <h2 class="mb-0">Autor : {{ autor }}</h2>
+            <hr class="m-0" />
+            <p><strong>Nombre: </strong> {{autor.nombre}}</p>
+            <p><strong>Apellidos: </strong> {{autor.apellidos}}</p>
+            <p><strong>Nacimiento: </strong> {{autor.nacimiento}}</p>
+            {% if autor.defuncion %}
+                <p><strong>Defunción: </strong> {{autor.defuncion}}</p>
+            {% endif %}
+        </div>
+    </section>
+</div>
 {% endblock %}
