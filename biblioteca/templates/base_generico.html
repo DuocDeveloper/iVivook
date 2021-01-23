@@ -29,8 +29,12 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'index' %}">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'libros' %}">Todos los libros</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'autor' %}">Todos los autores</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Login</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Registrate</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}?next={{request.path}}">Logout</a></li                        
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">({{ user.get_username }})</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}?next={{request.path}}">Login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

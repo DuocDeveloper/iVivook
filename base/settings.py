@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'biblioteca',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = '/biblioteca/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,8 +1,6 @@
 from os import name
 from django.urls import path, re_path
 from . import views
-from . import form
-
 
 urlpatterns = [
     re_path(r'^$', views.index, name='index'),
