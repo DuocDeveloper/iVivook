@@ -23,6 +23,7 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('biblioteca/', include('biblioteca.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('/', RedirectView.as_view(url='/biblioteca/', permanent=True))
 ]
 

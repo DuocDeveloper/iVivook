@@ -1,0 +1,36 @@
+{% extends "base_generico.html" %}
+
+{% block contentido %}
+<div class="container-fluid p-0">
+    <section class="resume-section" id="inicio">
+        <div class="resume-section-content">
+            {% if form.errors %}
+                <p>Tu nombre de usuarios o contraseña no existen, favor intentar nuevamente.</p>                
+            {% endif %}
+            {% if next %}
+                {% if user.is_authenticated %}
+                    <p>Tu cuenta no tiene acceso a esta pagina. Para proceder, inicie sesión con una cuenta que tenga acceso.</p>
+                {% else %}
+                    <p>Por favor inicie sesión para ver esta página</p>
+                {% endif %}
+            {% endif %}
+
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <div>{{ form.username.label_tag }}</div>
+                    <div>{{ form.username }}</div>
+                </div>
+                <div>
+                    <div>{{ form.password.label_tag }}</div>
+                    <div>{{ form.password }}</div>
+                </div>
+                <div>
+                    <input type="submit" value="Login">
+                    <input type="hidden" name="next" value="{{ next }}">
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base_generico.html" %}
+
+{% block contentido %}
+<div class="container-fluid p-0">
+    <section class="resume-section" id="inicio">
+        <div class="resume-section-content">
+            <h2>Creación Autor</h2>
+            <hr class="m-2" />
+            <form action="" method="post">
+                {% csrf_token %}
+                <table class="form-group">
+                    {{ form.as_table }}
+                </table>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
+</div>
+{% endblock %}

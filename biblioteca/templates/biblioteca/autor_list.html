@@ -5,20 +5,32 @@
     <section class="resume-section" id="inicio">
         <div class="resume-section-content">
             <h2 class="mb-0">Autores</h2>
+            <a href="{% url 'autor_create' %}">Nuevo</a>
             {% if  autor_list %}
             <table class="table table-sm">
                 <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Nacimiento</th>
-                    <th scope="col">Defunsión</th>
+                    <th scope="col">Defunción</th>
+                    <th scope="col">Acciones</th>
                 </tr>
                 {% for autor in autor_list %}
                     <tr>
                         <td><a href="{{ autor.get_absolute_url }}">{{autor.nombre}}</a></td>
                         <td>{{autor.apellidos}}</td>
                         <td>{{autor.nacimiento}}</td>
-                        <td><{{autor.defunsion}}/td>
+                        <td>
+                            {% if autor.defuncion %}
+                            {{autor.defuncion}}
+                            {% else %}
+                            -
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'autor_update' autor.id %}">Editar</a> | 
+                            <a href="{% url 'autor_delete' autor.id %}">Eliminar</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>
