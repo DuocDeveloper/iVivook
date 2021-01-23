@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 LOGIN_REDIRECT_URL = '/biblioteca/'
+DISABLE_COLLECTSTATIC=1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
